@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone</title>
+</head>
+<body>
+  <script>
+    class Phone {
+      constructor(name) {
+        this.name = name;
+        this.battery = 100;
+        this.inbox = [];
+        this.sent = [];
+        this.draft = "";
+      }
+      getName() {
+        return this.name;
+      }
+      setName(name) {
+        this.name = name;
+      }
+      checkStatus(){
+        return this.battery>0;
+      }
+      getBattery(){
+        return this.battery;
+      }
+      charge(){
+        this.battery=100;
+      }
+      writeMessage(message){
+        this.draft = message;
+      }
+      sendMessage(thatPhone){
+        let letter = this.draft;
+        thatPhone.inbox.push(letter);
+        this.sent.push(letter);
+        this.draft = "";
+      }
+    }
+    let dtDoan = new Phone("Doan");
+    let dtTuan = new Phone("Tuan");
+    dtDoan.checkStatus()
+    dtTuan.checkStatus()
+  </script>
+</body>
+</html>
